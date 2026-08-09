@@ -13,14 +13,15 @@ def epub_loader():
         soup = BeautifulSoup(item.get_content(), "html.parser")
         text = soup.get_text(separator="\n").strip()
         if text:
+            title = soup.find(["h1", "h2"]).get_text() if soup.find(["h1", "h2"]) else item.get_name()
             chapters.append(
-                {"title": soup.find(["h1", "h2"]).get_text() if soup.find(["h1", "h2"]) else item.get_name(),
+                {"title": title,
                  "text": text})
 
     documents = [
         Document(
             page_content=chapter["text"],
-            metadata={"chapter_title": chapter["title"], "chapter_index": i, "source": "Red_Rising.epub"}
+            metadata={"chapter_number": chapter["title"], "chapter_index": i, "source": "Red_Rising.epub"}
         )
         for i, chapter in enumerate(chapters)
     ]
