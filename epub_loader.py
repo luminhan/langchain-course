@@ -21,7 +21,7 @@ def epub_loader():
     documents = [
         Document(
             page_content=chapter["text"],
-            metadata={"chapter_number": chapter["title"], "chapter_index": i, "source": "Red_Rising.epub"}
+            metadata={"chapter_number": chapter["title"], "chapter_index": i, "source": "Golden_son.epub"}
         )
         for i, chapter in enumerate(chapters)
     ]
