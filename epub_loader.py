@@ -5,7 +5,7 @@ from langchain_core.documents import Document
 
 
 def epub_loader():
-    book = epub.read_epub("Red_Rising.epub")
+    book = epub.read_epub("Golden_Son.epub")
 
     chapters = []
 
